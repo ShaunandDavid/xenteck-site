@@ -25,10 +25,10 @@ export default function ContentEngine() {
             <h2 className="text-2xl font-bold mb-6">The Solution</h2>
             <p className="text-gray-400 mb-6">Content Engine learns your voice, extracts your expertise, and produces authentic content across all channels.</p>
             <ul className="space-y-4">
-              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">\u2713</span><div><strong className="text-white">Voice Cloning</strong><p className="text-gray-500">AI trained on YOUR writing style and terminology</p></div></li>
-              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">\u2713</span><div><strong className="text-white">Multi-Format Output</strong><p className="text-gray-500">LinkedIn, blog, email, video scripts from one idea</p></div></li>
-              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">\u2713</span><div><strong className="text-white">SEO Optimization</strong><p className="text-gray-500">Built-in keyword research and optimization</p></div></li>
-              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">\u2713</span><div><strong className="text-white">Content Calendar</strong><p className="text-gray-500">Automated scheduling and publishing workflow</p></div></li>
+              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">✓</span><div><strong className="text-white">Voice Cloning</strong><p className="text-gray-500">AI trained on YOUR writing style and terminology</p></div></li>
+              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">✓</span><div><strong className="text-white">Multi-Format Output</strong><p className="text-gray-500">LinkedIn, blog, email, video scripts from one idea</p></div></li>
+              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">✓</span><div><strong className="text-white">SEO Optimization</strong><p className="text-gray-500">Built-in keyword research and optimization</p></div></li>
+              <li className="flex items-start"><span className="text-xenteck-blue mr-3 text-xl">✓</span><div><strong className="text-white">Content Calendar</strong><p className="text-gray-500">Automated scheduling and publishing workflow</p></div></li>
             </ul>
           </div>
           <div className="text-center"><Link href="/contact" className="bg-xenteck-blue hover:bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition inline-block">Get Content Engine</Link></div>
