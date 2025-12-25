@@ -26,3 +26,55 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
 }
+
+/* Hero animations */
+.hero-gradient {
+  background: radial-gradient(ellipse at 50% 50%, #0066FF 0%, transparent 50%);
+  animation: pulse-gradient 4s ease-in-out infinite;
+}
+
+@keyframes pulse-gradient {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Speed lines */
+.speed-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #0066FF, transparent);
+  animation: speed-across 3s linear infinite;
+}
+
+.speed-line-1 { top: 20%; width: 200px; animation-delay: 0s; }
+.speed-line-2 { top: 35%; width: 150px; animation-delay: 0.5s; }
+.speed-line-3 { top: 55%; width: 180px; animation-delay: 1s; }
+.speed-line-4 { top: 70%; width: 120px; animation-delay: 1.5s; }
+.speed-line-5 { top: 85%; width: 160px; animation-delay: 2s; }
+
+@keyframes speed-across {
+  0% { left: -200px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% + 200px); opacity: 0; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+.stat-card {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center;
+}
