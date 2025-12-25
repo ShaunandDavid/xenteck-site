@@ -15,7 +15,6 @@ export default function Contact() {
       await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
