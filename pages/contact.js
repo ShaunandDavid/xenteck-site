@@ -10,7 +10,7 @@ export default function Contact() {
     setStatus('sending');
     
     try {
-      const webhookUrl = 'https://hook.us2.make.com/kwah73cbhkfe4l9580cmh4jyvjd31h2x';
+      const webhookUrl = 'https://hook.us2.make.com/himxl6d7ptbvh1s8nofzi9bkeujiyrvh';
       
       await fetch(webhookUrl, {
         method: 'POST',
