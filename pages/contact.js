@@ -2,33 +2,32 @@ import Head from 'next/head';
 import { useState } from 'react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', phone: '', company: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [formData, setFormData] = useState({ name: '', email: '', website: '', headache: '' });
+  const [status, setStatus] = useState('idle');
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
     
     try {
-      // Make.com webhook - Speed-to-Lead demo
       const webhookUrl = 'https://hook.us2.make.com/kwah73cbhkfe4l9580cmh4jyvjd31h2x';
       
       await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors', // Make.com webhooks need this
+        mode: 'no-cors',
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
-          company: formData.company,
-          message: formData.message,
+          email: formData.email,
+          website: formData.website,
+          headache: formData.headache,
           source: 'xenteck-website',
           timestamp: new Date().toISOString()
         })
       });
       
       setStatus('success');
-      setFormData({ name: '', phone: '', company: '', message: '' });
+      setFormData({ name: '', email: '', website: '', headache: '' });
     } catch (error) {
       setStatus('error');
     }
@@ -49,14 +48,8 @@ export default function Contact() {
               <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
               
               <div className="mb-6">
-                <h3 className="text-white font-semibold mb-2">Call Our AI</h3>
-                <a href="tel:+1XXXXXXXXXX" className="text-xenteck-blue hover:underline text-lg flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  (XXX) XXX-XXXX
-                </a>
-                <p className="text-gray-500 text-sm mt-1">Our Voice AI is standing by 24/7</p>
+                <h3 className="text-white font-semibold mb-2">Email</h3>
+                <a href="mailto:admin@xenteck.com" className="text-xenteck-blue hover:underline">admin@xenteck.com</a>
               </div>
               
               <div className="bg-xenteck-gray border border-gray-800 rounded-xl p-6">
@@ -64,7 +57,7 @@ export default function Contact() {
                 <ol className="space-y-3 text-gray-400">
                   <li className="flex items-start">
                     <span className="text-xenteck-blue mr-3 font-bold">1.</span>
-                    <span>We contact you with a booking link in under 5 seconds <span className="text-xenteck-blue">(try it, it's fun)</span></span>
+                    <span>We contact you in under 5 seconds <span className="text-xenteck-blue">(try it, it's fun)</span></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-xenteck-blue mr-3 font-bold">2.</span>
@@ -90,8 +83,8 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Phone!</h3>
-                  <p className="text-gray-400">Our Speed-to-Lead just fired. You should have a text within 5 seconds.</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Inbox!</h3>
+                  <p className="text-gray-400">Our Speed-to-Lead just fired. You should have an email within seconds.</p>
                 </div>
               ) : (
                 <div className="space-y-6">
@@ -107,35 +100,35 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Phone Number</label>
+                    <label className="block text-white font-semibold mb-2">Email</label>
                     <input 
-                      type="tel" 
+                      type="email" 
                       required 
-                      placeholder="(555) 123-4567"
+                      placeholder="you@company.com"
                       className="w-full bg-xenteck-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-xenteck-blue focus:outline-none" 
-                      value={formData.phone} 
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})} 
+                      value={formData.email} 
+                      onChange={(e) => setFormData({...formData, email: e.target.value})} 
                     />
-                    <p className="text-gray-500 text-xs mt-1">We'll text you a booking link in under 5 seconds</p>
                   </div>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Company</label>
+                    <label className="block text-white font-semibold mb-2">Website</label>
                     <input 
                       type="text" 
-                      placeholder="Your company"
+                      placeholder="yourcompany.com"
                       className="w-full bg-xenteck-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-xenteck-blue focus:outline-none" 
-                      value={formData.company} 
-                      onChange={(e) => setFormData({...formData, company: e.target.value})} 
+                      value={formData.website} 
+                      onChange={(e) => setFormData({...formData, website: e.target.value})} 
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-semibold mb-2">How can we help?</label>
+                    <label className="block text-white font-semibold mb-2">What's your biggest lead headache?</label>
                     <textarea 
                       rows="4" 
-                      placeholder="Tell us about your lead response challenges..."
+                      required
+                      placeholder="Tell us what's costing you deals..."
                       className="w-full bg-xenteck-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-xenteck-blue focus:outline-none resize-none" 
-                      value={formData.message} 
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      value={formData.headache} 
+                      onChange={(e) => setFormData({...formData, headache: e.target.value})}
                     ></textarea>
                   </div>
                   <button 
@@ -161,7 +154,7 @@ export default function Contact() {
                     )}
                   </button>
                   {status === 'error' && (
-                    <p className="text-red-400 text-center text-sm">Something went wrong. Try again or call us directly.</p>
+                    <p className="text-red-400 text-center text-sm">Something went wrong. Try again or email us directly.</p>
                   )}
                 </div>
               )}
